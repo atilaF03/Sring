@@ -1,12 +1,15 @@
 package br.com.example.api.repositorio;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.example.api.modelo.Pessoa;
+import br.com.example.api.modelo.Veiculo;
+
 @Repository
-public interface Repositorio extends CrudRepository<Pessoa, Integer> {
-    // Este repositório herda métodos CRUD básicos do CrudRepository
-    // Não é necessário implementar nada aqui, o Spring Data JPA cuida disso
-    
+public interface Repositorio extends CrudRepository<Veiculo, Integer>{
+    List<Veiculo>findAll();
+
+    Veiculo findByCodigo(int codigo);
 }
